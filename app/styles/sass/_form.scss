@@ -1,0 +1,174 @@
+/**************** From Bootstrap - Only need input fields ****************/
+
+.input-wrapper, .select-wrapper {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+input, select {
+    @include box-sizing();
+    @include border-radius(5px);
+    border:1px solid $grey-20;
+    background: $white;
+    margin-left: 0;
+    margin-top: 5px;
+    width: 95%;
+}
+
+input, select.selected, select:focus {
+    color:$TM-black;
+}
+
+textarea{
+    @include border-radius(5px);
+    @include box-sizing();
+    border:none;
+    background: $white;
+    color:$TM-black;
+    width: 95%;
+
+}
+
+input, select {
+    padding:4px 4px 5px 4px;
+    height:31px;
+}
+
+textarea {
+    font-size: 12px;
+    padding:4px 6px 5px 6px;
+}
+
+.big {
+    input, select {
+        font-weight: 300;
+        padding: 4px 11px 5px;
+        height:45px;
+    }
+};
+
+
+/**************** Specifics for here ****************/
+
+form{
+    width: 722px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.new-input-wrapper.big input{
+    width: 400px;
+    height: 55px;
+    font-family: 'Arial', sans-serif;
+    font-size: 19px;
+    font-weight:normal;
+    margin-top:5px;
+    margin-bottom:10px;
+    background:#ffffff;
+}
+
+#amount{
+    padding-left: 32px;
+}
+
+.new-input-wrapper.big input:focus{
+    outline:0 !important;
+    border:1px solid rgba(45, 141, 176, 0.5) !important;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(45, 141, 176, 0.20) !important;
+    -moz-box-shadow: 0px 0px 6px 0px rgba(45, 141, 176, 0.20) !important;
+    box-shadow: 0px 0px 6px 0px rgba(45, 141, 176, 0.20) !important;
+}
+
+.side-tooltip {
+    position: absolute;
+    width: 260px;
+    margin-left:-675px;
+    margin-top: 5px;
+    padding-right:5px;
+    overflow:hidden;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight:bold;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    pointer-events:none;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6REQ5NkYzMTNGODcwMTFFM0FEMEFFNjYyOTY5Q0FENjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6REQ5NkYzMTJGODcwMTFFM0FEMEFFNjYyOTY5Q0FENjEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI5NThGMTdERjg2RjExRTNBRDBBRTY2Mjk2OUNBRDYxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjI5NThGMTdFRjg2RjExRTNBRDBBRTY2Mjk2OUNBRDYxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FbEesQAAAHpJREFUeNpEjosNwyAMRH0SY3QbtmCHKsoqmSMbYvtyuES1hEDvPga998vMDh3anpaRXwONRAmAYETIQgmWMJyys0VGBQlV6JbzbO4uE6pS7BBkxdfgv+nzg9zU7NZ7tHBBcAMMifON32ocMs/6p6dXRPa5etbSR4ABAC6tP8gog4HuAAAAAElFTkSuQmCC') top 22px right no-repeat;
+}
+
+.side-tooltip-inner {
+    float:left;
+    width:250px;
+    height: 39px;
+    line-height: 18px;
+    border-radius: 5px;
+    padding: 8px 5px 8px 5px;
+    @include background-gradient(#333333,#666666,#000000,0%,100%); 
+}
+
+#inputmarker1.show, #inputmarker2.show{
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+.side-tooltip span.small { 
+    display: block;
+    margin-top: 5px;
+    color: #ddd;
+    font-size: 14px;
+    line-height:14px;
+    font-weight:normal;
+}
+
+button, .button{
+    width: 400px;
+    height:60px;
+    margin-top:6px;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 17px;
+    font-weight:bold;
+    border:none;
+    @include background-gradient(#ff7032,#ff7032,#ff3300,0%,100%); 
+    color: #fff;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -2px 6px 0 rgba(0,0,0,0.2);
+    box-shadow: inset 0 -2px 6px 0 rgba(0,0,0,0.2);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:pointer;
+}
+
+a.button, a.button:hover{
+    width: auto;
+    height:auto;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    margin-top:4px;
+    padding: 9px 10px 11px 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 17px;
+    font-weight:bold;
+    text-decoration:none !important;
+    color:#ffffff !important;
+}
+
+button:hover, .button:hover{
+    @include background-gradient(#ff7032,#ff4d00,#ff7032,30%,100%); 
+    -webkit-box-shadow: inset 0 2px 6px 0 rgba(0,0,0,0.2);
+    box-shadow: inset 0 2px 6px 0 rgba(0,0,0,0.2);
+    outline:0 !important;
+}
+
+.poundhelp {
+    position: absolute;
+    margin-top: -65px;
+    margin-left: 161px;
+    width:25px;
+    height:55px;
+    background: url('https://s3-eu-west-1.amazonaws.com/tm-infopages/house/image-combo.png') top left no-repeat;
+}

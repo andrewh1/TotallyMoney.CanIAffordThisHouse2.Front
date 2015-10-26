@@ -1,0 +1,125 @@
+<div class="results win">
+<div class="inner">
+
+    <script>$(".bgwrapper").addClass("win");</script>
+
+    <h2>You’ll have saved up your deposit in {{ results.Years }} years and {{ results.Months }} months</h2>
+    
+    <p>
+        The average house price in <span>{{ results.Area }}</span> is <span>£{{ results.AvHousePrice }}</span>, so you need to put aside at least <span>£{{ results.AvMonthlyPaymentNeeded }}/month</span> to save enough for a deposit and even then it would take you <span>{{ results.AvYears }} years and {{ results.AvMonths }} months</span>.
+    </p>
+
+    <p class="last">
+        <a href="{{ results.CheaperHousePic }}" onclick="window.open(this.href,'targetWindow','width=400,height=300');return false;"><img src="{{ results.CheaperHousePic }}" /></a>But you would only need to put aside <span>£{{ results.CheaperAreaMonthlyPaymentsTenYear }}</span> to save enough to cover the deposit on a house in <span>{{ results.CheaperAreaName }}</span> in the same time.
+    </p>
+
+    <div class="row border">
+
+        <a href="http://www.totallymoney.com/can-i-afford-to-buy/" class="button">Let me have another go!</a>
+
+        <div class="share">
+
+            <p><b>Know someone who is trying to buy a house?</b> Share this with them &#8594;</p>
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/1sQ9gXz" data-text="How much do you think you'd need to save each month to be able to afford to buy your own home?" data-count="none">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+            <div class="fb-share-button" data-href="http://www.totallymoney.com/can-i-afford-to-buy/" data-type="button"></div>
+
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div id="info"><span>How did we work this out?</span></div>
+        <div id="getbanner"><span>Embed a link in your site</span></div>
+        <a href="http://www.totallymoney.com/news/" target="_blank">
+            <img src="https://s3-eu-west-1.amazonaws.com/tm-header/images/TotallyMoney_New.png" alt="Totally Money" class="logo">
+        </a>
+    </div>
+
+    </div><!-- End inner box -->
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(function(){
+
+            $(function(){
+                $("#areas").focus();
+                $("#inputmarker1").addClass("show");
+                $(".clouds").addClass("move");
+                $(".birds").addClass("fly");
+            });
+
+            $("#btn").click(function(){ 
+                $(".clouds").toggleClass("swipe"); 
+                $("#mobhouses").addClass("hide");
+            }); 
+
+            $("#areas").focus(function(){ 
+                $("#inputmarker2").removeClass("show");
+                $("#inputmarker1").addClass("show");
+            }); 
+
+            $("#amount").focus(function(){ 
+                $("#inputmarker1").removeClass("show");
+                $("#inputmarker2").addClass("show");
+            }); 
+
+            $("#getbanner span").click(function(){ 
+                $("#infopopup").removeClass("show");
+                $("#info").removeClass("open");
+                $("#embedcode").toggleClass("show");
+                $('html, body').animate({ scrollTop: $("#embedcode").offset().top }, 500);
+            }); 
+
+            $("#info span").mouseenter(function(){ 
+                $("#info").addClass("hover");
+            });
+
+            $("#info span").mouseleave(function(){ 
+                $("#info").removeClass("hover");
+            });
+
+            $("#info span").click(function(){ 
+                $("#embedcode").removeClass("show");
+                $("#infopopup").toggleClass("show");
+                $("#info").toggleClass("open");
+                $('html, body').animate({ scrollTop: $("#info").offset().top }, 500);
+            });
+
+        });
+
+    </script>
+
+    <div class="row">
+        <textarea id="embedcode"><a href="http://www.totallymoney.com/can-i-afford-to-buy/" target="_blank"><img src="https://s3-eu-west-1.amazonaws.com/tm-infopages/house/shareembed.png" border="0" width="400" height="276" /></a><br /><span style="font-size: 1em;">Click image to see the full interactive graphic (via <a href="https://www.totallymoney.com/">TotallyMoney.com</a>).</span></textarea>
+        <div id="infopopup">
+            <div class="wrap">
+                <div class="info-inner">
+
+                    <h3>How did we work this out?</h3>
+
+                    <ul class="bullets">
+                        <li>House prices for any given postcode are based on the average for that area sourced from the Land Registry.</li>
+                        <li>We assumed that the deposit required is 15% of the average house price in the given postcode.</li>
+                        <li>House prices are assumed to change at the same annual rate as the average annual rate of change as measured over the past five years.</li>
+                        <li>Annual house price change statistics are calculated by taking the average house price data from the Land Registry over the last five years and averaging the annual changes between them.</li>
+                        <li>Savings that go toward the deposit are assumed to accrue no interest over time.</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

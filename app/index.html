@@ -1,0 +1,188 @@
+<!doctype html>
+
+<html>
+    <head>
+		<meta charset="utf-8">
+        <meta name="description" content="See where you could afford to buy based on how much you can save each month for a deposit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- for Twitter -->          
+        <meta name="twitter:card" content="website" />
+        <meta name="twitter:title" content="Can I afford to buy?" />
+        <meta name="twitter:description" content="See where you could afford to buy based on how much you can save each month for a deposit" />
+        <meta name="twitter:image" content="https://s3-eu-west-1.amazonaws.com/tm-infopages/house/share2.jpg" />
+
+        <!-- for Facebook -->    
+        <meta property="og:title" content="Can I afford to buy?">
+        <meta property="og:site_name" content="totallymoney.com">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="See where you could afford to buy based on how much you can save each month for a deposit">
+        <meta itemprop="name" content="Can I afford to buy?">
+        <meta name="description" content="See where you could afford to buy based on how much you can save each month for a deposit">
+        <meta itemprop="description" content="See where you could afford to buy based on how much you can save each month for a deposit">
+        <meta property="og:image" content="https://s3-eu-west-1.amazonaws.com/tm-infopages/house/share.jpg">
+        <meta property="og:image:width" content="400">
+        <meta property="og:image:height" content="400">
+        <meta itemprop="image" content="https://s3-eu-west-1.amazonaws.com/tm-infopages/house/share.jpg"> 
+        <meta property="og:url" content="http://www.totallymoney.com/can-i-afford-to-buy/">
+        
+        <title>Can I Afford To Buy?</title>
+        
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+        <script type="text/javascript" src="//use.typekit.net/uwx7hys.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        
+        <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/tm-content-pages/afford-buy/main.css">
+        
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js" type="text/javascript"></script>
+        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+        <script src="https://s3-eu-west-1.amazonaws.com/tm-content-pages/afford-buy/move.js"></script>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+        
+        <link rel="shortcut icon" href="https://s3-eu-west-1.amazonaws.com/tm-infopages/house/favicon.png" type="image/x-icon">
+        <link rel="icon" href="https://s3-eu-west-1.amazonaws.com/tm-infopages/house/favicon.png" type="image/x-icon">
+        
+        <script type='text/javascript'>    
+
+            function ButtonClick() {
+                 
+                 var amount = document.getElementById('amount').value; 
+                 var area = document.getElementById('areas').value; 
+
+                 var qs = "?area=" + area + "&MonthlySavings=" + amount + "";
+
+                 $.ajax({
+                    url: "/can-i-afford-to-buy/GetResults" + qs,
+                    type: 'GET',
+                    datatype: 'html',
+                    contenttype: 'application/json; charset=utf-8',
+                      success: function (result) {
+                        console.log(result);
+                        $('#frm').html(result);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        $('#frm').html(error);
+                    }
+                });
+            }       
+
+            var substringMatcher = function(strs) {
+              return function findMatches(q, cb) {
+                var matches, substringRegex;
+             
+                // an array that will be populated with substring matches
+                matches = [];
+             
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
+             
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function(i, str) {
+                  if (substrRegex.test(str)) {
+                    // the typeahead jQuery plugin expects suggestions to a
+                    // JavaScript object, refer to typeahead docs for more info
+                    matches.push({ value: str });
+                  }
+                });
+             
+                cb(matches);
+              };
+            };
+ 
+            $(function() {
+                var stringareas = '{{areas}}';
+                var availableTags = stringareas.split(',');
+                $( "#areas" ).autocomplete({
+                  source: availableTags
+                });
+              });
+
+                
+		</script>		
+
+    </head>
+
+    <body>
+
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TB4MPP"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TB4MPP');</script>
+        <!-- End Google Tag Manager -->   
+
+        
+        <!-- Background graphics wrappers -->
+        <div class="bgwrapper">
+            <div class="bgextrawrapper">
+                <div class="bginnerwrapper">
+                    <div class="clouds">    
+                        <div class="birds">   
+
+                            <!-- Header hard-styled to throw in all external -->
+                            <div style="float:left;width:100%;height:40px;margin-bottom:30px;background:#fff;border-bottom:1px solid #ddd;">
+                                <div class="backheaderwidth" style="margin:0 auto;height:40px;">
+                                    <a href="http://www.totallymoney.com/news/" style="float:left;margin:12px 0 0 10px;height:28px;padding:0 0 0 23px;font-size:1.1em;font-weight:normal;color:#0F7BB5; background: url('data:image/gif;base64,R0lGODlhEAAQANUAANnn7SWMsiSLsR6JsBmGriSMsR6Irx2Hrmuxysbh6jGStcXi6vz9/i+StYm/04a/0+nz90+iwFCiwR2Irh2IryOLsez0+COLsMTb5iaNsqTI2RGBqvP09lOhv6LH2fv8/RyJrxuGrUWauheGrimOs321zazN3Mbc5jeTtjeUtnWxybPT4brW4sLa5SCKsM3h6UCWuJrD1Z3H2T+WuGetxzmStD2WtxyIryiOsny60DCStSGKsCaMsiiNsieNsv///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMjEgNzkuMTU1NzcyLCAyMDE0LzAxLzEzLTE5OjQ0OjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxOTQwMTk1MjIwN0IxMUU0QjY4MkY1NjMzNDBGQUJFRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxOTQwMTk1MzIwN0IxMUU0QjY4MkY1NjMzNDBGQUJFRSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDMzI3Njg5MjA3MjExRTRCNjgyRjU2MzM0MEZBQkVFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdDMzI3NjhBMjA3MjExRTRCNjgyRjU2MzM0MEZBQkVFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAABAAEAAABrXAn5CxyEkUCkluwRA6LY/GhOfz8SaNh+WJMOx61WpvZ0Bsfw/KBRcAucK9C+XxS+h2uEyoNutlxDs6CTkHeRs5ECUCf1U4BzkRPAEhJR8rKC4VAhUFVhE6Phs0Qi0sGKcvJjY3OqAEIgA/JzEeGhomDikDOpE9BDAAHB0GFcWLPBGEODgjIjIqPQFhjjl2XyQDGwRhPmOCaGpg3N1ydD8WXV/cY2Vn51FTVVdZ7kNFR0lLTUJBADs=') top left no-repeat;">Back</a>
+                                    <a href="https://www.totallymoney.com" style="float: right;padding: 2px 10px 0 0;"><img src="https://s3-eu-west-1.amazonaws.com/tm-contenthub/mini-logo.gif"></a>
+                                </div>
+                            </div>
+
+                            <header>
+                                <div>                
+                                    <h1>Will you ever be able to afford to buy your own home?</h1>
+                                </div>
+                            </header>
+
+                            <main>	
+                                <form id="frm" autocomplete="off">
+
+                                    <div class="new-input-wrapper big">
+                                        
+                                        <input id="areas" type="textbox" placeholder="Where do you want to live?" />
+
+                                        <span id="inputmarker1" class="side-tooltip">
+                                            <span class="side-tooltip-inner">
+                                                Start typing an area
+                                                <span class="small">Then select from the list</span>
+                                            </span>
+                                        </span>
+
+                                    </div>
+
+                                    <div class="new-input-wrapper big">
+
+                                        <input id="amount" type="textbox" placeholder="How much can you save each month?" autocomplete="off" />
+
+                                        <span id="inputmarker2" class="side-tooltip">
+                                            <span class="side-tooltip-inner">
+                                                Enter the amount you can save each month for a deposit
+                                            </span>
+                                        </span>
+                                        
+                                        <div class="poundhelp"></div>
+
+                                    </div>
+                                    
+                    				<button id="btn" type="button" onclick="ButtonClick();return false;">When will I have saved enough for a deposit?</button>
+                                    
+                                </form>
+                                
+                                <div id="mobhouses"></div>
+                                    
+                            </main> 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
